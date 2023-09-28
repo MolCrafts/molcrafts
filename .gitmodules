@@ -1,0 +1,6 @@
+[submodule "shared/molpy"]
+	path = shared/molpy
+	url = https://github.com/MolCrafts/molpy.git
+[submodule "shared/molbase"]
+	path = shared/molbase
+	url = https://github.com/MolCrafts/molbase.git
