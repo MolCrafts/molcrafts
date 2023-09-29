@@ -1,4 +1,19 @@
-
+[project]
+name = "molcrafts"
+authors = [
+    {name = "Roy Kid", email = "lijichen365@gmail.com"},
+]
+description = "Monorepo housing MolCrafts' tools"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["chemistry"]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+]
+dynamic = ["version"]
 
 [tool.black]
 line-length = 80
