@@ -4,3 +4,9 @@
 [submodule "shared/molbase"]
 	path = shared/molbase
 	url = https://github.com/MolCrafts/molbase.git
+[submodule "shared/molcpp"]
+	path = shared/molcpp
+	url = https://github.com/MolCrafts/molcpp.git
+[submodule "projects/molpot"]
+	path = projects/molpot
+	url = https://github.com/MolCrafts/molpot.git
