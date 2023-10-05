@@ -10,3 +10,12 @@
 [submodule "projects/molpot"]
 	path = projects/molpot
 	url = https://github.com/MolCrafts/molpot.git
+[submodule "shared/molvis"]
+	path = shared/molvis
+	url = https://github.com/MolCrafts/molvis.git
+[submodule "projects/molexp"]
+	path = projects/molexp
+	url = https://github.com/MolCrafts/molexp.git
+[submodule "external/chemfiles"]
+	path = external/chemfiles
+	url = https://github.com/Roy-Kid/chemfiles.git
