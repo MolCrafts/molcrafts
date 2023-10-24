@@ -10,7 +10,7 @@
 [submodule "projects/molpot"]
 	path = projects/molpot
 	url = https://github.com/MolCrafts/molpot.git
-[submodule "shared/molvis"]
+[submodule "projects/molvis"]
 	path = projects/molvis
 	url = https://github.com/MolCrafts/molvis.git
 [submodule "projects/molexp"]
