@@ -11,7 +11,7 @@
 	path = projects/molpot
 	url = https://github.com/MolCrafts/molpot.git
 [submodule "shared/molvis"]
-	path = shared/molvis
+	path = projects/molvis
 	url = https://github.com/MolCrafts/molvis.git
 [submodule "projects/molexp"]
 	path = projects/molexp
