@@ -16,6 +16,9 @@
 [submodule "projects/molexp"]
 	path = projects/molexp
 	url = https://github.com/MolCrafts/molexp.git
-[submodule "external/chemfiles"]
-	path = external/chemfiles
-	url = https://github.com/Roy-Kid/chemfiles.git
+[submodule "shared/molana"]
+	path = shared/molana
+	url = https://github.com/MolCrafts/molana.git
+[submodule "shared/molexp"]
+	path = shared/molexp
+	url = https://github.com/MolCrafts/molexp.git
