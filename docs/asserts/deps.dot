@@ -1,0 +1,22 @@
+
+digraph deps {
+    fontname="Helvetica,Arial,sans-serif"
+    node [fontname="Helvetica,Arial,sans-serif"]
+    edge [fontname="Helvetica,Arial,sans-serif"]
+    node [color=lightblue2, style=filled];
+
+    "molpy"  [color=lightsalmon, href="https://github.com/MolCrafts/molpy"]
+    "molpot" [color=lightsalmon, href="https://github.com/MolCrafts/molpot"]
+    "molvis" [color=lightsalmon, href="https://github.com/MolCrafts/molvis"]
+    "molexp" [color=lightsalmon, href="https://github.com/MolCrafts/molexp"]
+
+    "molpot"     -> "molexp"
+    "molpy"      -> "molvis"
+    "molbuilder" -> "molpy"
+    "molpack"  -> "molpy"
+    "molana"  -> "molpy"
+    "molpot" -> "molpy"
+    "molpy" -> "molbase" [style=dashed, color=grey]
+    "molpy" -> "molcore" [style=dashed, color=grey]
+
+}
