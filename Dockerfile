@@ -46,5 +46,5 @@ COPY --from=conda /opt/conda /opt/conda
 COPY --from=molcrafts /opt/molcrafts/molpy /opt/molcrafts/molpy
 RUN /opt/conda/bin/conda update -y -n base -c defaults conda
 RUN /opt/conda/bin/conda install -y python=${PYTHON_VERSION}
-RUN /opt/conda/bin/python -mpip install -e .
+RUN /opt/conda/bin/python -mpip install -e .[dev]
 RUN /opt/conda/bin/conda clean -ya
