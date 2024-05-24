@@ -10,3 +10,6 @@
 [submodule "molpot"]
 	path = molpot
 	url = https://github.com/MolCrafts/molpot.git
+[submodule "chemfile-testcases"]
+	path = chemfile-testcases
+	url = https://github.com/molcrafts/chemfile-testcases.git
