@@ -13,3 +13,6 @@
 [submodule "chemfile-testcases"]
 	path = chemfile-testcases
 	url = https://github.com/molcrafts/chemfile-testcases.git
+[submodule "molcore"]
+	path = molcore
+	url = https://github.com/Roy-Kid/molcore.git

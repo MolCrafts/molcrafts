@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "molvis",
+		},
+		{
+			"path": "molexp",
+		},
+		{
+			"path": "molpy",
+		}
+	],
+	"settings": {
+	}
+}

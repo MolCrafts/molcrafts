@@ -46,3 +46,8 @@ COPY --from=conda /opt/conda /opt/conda
 COPY --from=molcrafts /opt/molcrafts/molpy /opt/molcrafts/molpy
 RUN /opt/conda/bin/python -mpip install -e .[dev]
 RUN /opt/conda/bin/conda clean -ya
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        build-essential \
+        cmake \
+        git && \
+    rm -rf /var/lib/apt/lists/*
