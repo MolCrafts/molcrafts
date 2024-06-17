@@ -11,10 +11,19 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     rm -rf /var/lib/apt/lists/*
 ENV PATH /opt/conda/bin:$PATH
 
-FROM base as molcrafts
+FROM base as molcrafts-dev
 WORKDIR /opt/molcrafts
-COPY . .
+COPY . /opt/molcrafts
 RUN git submodule update --init --recursive
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        build-essential \
+        cmake \
+        git \
+        wget \
+        libblas-dev \
+        liblapack-dev  && \
+    rm -rf /var/lib/apt/lists/*
+RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
 FROM base as conda
 ARG PYTHON_VERSION=3.11
@@ -30,24 +39,9 @@ RUN chmod +x ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -ya
 
-FROM conda as conda-dev
-COPY --from=conda /opt/conda /opt/conda
-
 FROM conda as molpy
 WORKDIR /opt/molcrafts/molpy
 COPY --from=conda /opt/conda /opt/conda
 COPY --from=molcrafts /opt/molcrafts/molpy /opt/molcrafts/molpy
 RUN /opt/conda/bin/python -mpip install -e .
 RUN /opt/conda/bin/conda clean -ya
-
-FROM conda as molpy-dev
-WORKDIR /opt/molcrafts/molpy
-COPY --from=conda /opt/conda /opt/conda
-COPY --from=molcrafts /opt/molcrafts/molpy /opt/molcrafts/molpy
-RUN /opt/conda/bin/python -mpip install -e .[dev]
-RUN /opt/conda/bin/conda clean -ya
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        build-essential \
-        cmake \
-        git && \
-    rm -rf /var/lib/apt/lists/*
