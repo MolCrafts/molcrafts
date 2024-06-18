@@ -14,16 +14,24 @@ ENV PATH /opt/conda/bin:$PATH
 FROM base as molcrafts-dev
 WORKDIR /opt/molcrafts
 COPY . /opt/molcrafts
-RUN git submodule update --init --recursive
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        build-essential \
-        cmake \
-        git \
-        wget \
-        clang-tidy-14 \
-        libblas-dev \
-        liblapack-dev  && \
+    build-essential \ 
+    ca-certificates \ 
+    coreutils \ 
+    curl \ 
+    environment-modules \ 
+    gfortran \ 
+    git \ 
+    gpg \ 
+    lsb-release \ 
+    python3 \ 
+    python3-distutils \ 
+    python3-venv \ 
+    unzip \ 
+    zip && \
     rm -rf /var/lib/apt/lists/*
+RUN git clone -c feature.manyFiles=true https://github.com/spack/spack.git
+RUN . spack/share/spack/setup-env.sh
 RUN update-alternatives --install
     /usr/bin/clang-tidy clang-tidy
     /usr/bin/clang-tidy-14 140
