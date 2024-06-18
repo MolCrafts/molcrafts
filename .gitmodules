@@ -16,3 +16,6 @@
 [submodule "molcore"]
 	path = molcore
 	url = https://github.com/Roy-Kid/molcore.git
+[submodule "molpack"]
+	path = molpack
+	url = https://github.com/molcrafts/molpack.git

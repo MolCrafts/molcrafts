@@ -1,0 +1,8 @@
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - xtensor
+  - xtensor-blas
+  view: true
+  concretizer:
+    unify: true

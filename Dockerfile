@@ -28,10 +28,24 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     gcovr \
     wget \
     && rm -rf /var/lib/apt/lists/*
-RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
-RUN deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main
-RUN deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
+ARG base_tag=jammy
+ARG llvm_version=16
+RUN apt-get update --fix-missing && apt-get -y upgrade
+RUN apt-get install -y --no-install-recommends \
+    gnupg2 \
+    gnupg-agent \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+RUN curl --fail --silent --show-error --location https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+RUN echo "deb http://apt.llvm.org/$base_tag/ llvm-toolchain-$base_tag-$llvm_version main" >> /etc/apt/sources.list.d/llvm.list
+RUN apt-get update --fix-missing && apt-get -y upgrade
+RUN apt-get install -y --no-install-recommends \
+    clang-format-${llvm_version} \
+    clang-tidy-${llvm_version} \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/bin/clang-format-${llvm_version} /usr/local/bin/clang-format
+RUN ln -s /usr/bin/clang-tidy-${llvm_version} /usr/local/bin/clang-tidy
 
 FROM base as conda
 ARG PYTHON_VERSION=3.11
@@ -46,10 +60,3 @@ RUN chmod +x ~/miniconda.sh && \
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -ya
-
-FROM conda as molpy
-WORKDIR /opt/molcrafts/molpy
-COPY --from=conda /opt/conda /opt/conda
-COPY --from=molcrafts /opt/molcrafts/molpy /opt/molcrafts/molpy
-RUN /opt/conda/bin/python -mpip install -e .
-RUN /opt/conda/bin/conda clean -ya
