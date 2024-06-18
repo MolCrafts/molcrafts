@@ -38,10 +38,3 @@ RUN chmod +x ~/miniconda.sh && \
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -ya
-
-FROM conda as molpy
-WORKDIR /opt/molcrafts/molpy
-COPY --from=conda /opt/conda /opt/conda
-COPY --from=molcrafts /opt/molcrafts/molpy /opt/molcrafts/molpy
-RUN /opt/conda/bin/python -mpip install -e .
-RUN /opt/conda/bin/conda clean -ya
