@@ -20,10 +20,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         cmake \
         git \
         wget \
+        clang-tidy-14 \
         libblas-dev \
         liblapack-dev  && \
     rm -rf /var/lib/apt/lists/*
-RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+RUN update-alternatives --install
+    /usr/bin/clang-tidy clang-tidy
+    /usr/bin/clang-tidy-14 140
 
 FROM base as conda
 ARG PYTHON_VERSION=3.11

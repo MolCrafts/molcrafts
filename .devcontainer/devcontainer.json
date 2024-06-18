@@ -11,7 +11,10 @@
 	},
 	"features": {
 		"ghcr.io/devcontainers/features/python:1": {}
-	}
+	},
+
+	// https://github.com/microsoft/vscode-remote-release/issues/4855#issuecomment-831920085
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
