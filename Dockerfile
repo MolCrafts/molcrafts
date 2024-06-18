@@ -27,7 +27,22 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ruby \
     gcovr \
     wget \
+    libblas-dev \
+    liblapack-dev \
     && rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/xtensor-stack/xtl.git --depth 1 -b master /opt/xtl
+RUN mkdir /opt/xtl/build
+RUN cmake -S /opt/xtl -B /opt/xtl/build && cmake --build /opt/xtl/build --target install
+
+RUN git clone https://github.com/xtensor-stack/xtensor.git --depth 1 -b master /opt/xtensor
+RUN mkdir /opt/xtensor/build
+RUN cmake -S /opt/xtensor -B /opt/xtensor/build && cmake --build /opt/xtensor/build --target install
+
+RUN git clone https://github.com/xtensor-stack/xtensor-blas.git --depth 1 -b master /opt/xtensor-blas
+RUN mkdir /opt/xtensor-blas/build
+RUN cmake -S /opt/xtensor-blas -B /opt/xtensor-blas/build && cmake --build /opt/xtensor-blas/build --target install
+
 ARG base_tag=jammy
 ARG llvm_version=16
 RUN apt-get update --fix-missing && apt-get -y upgrade
