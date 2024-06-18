@@ -14,16 +14,24 @@ ENV PATH /opt/conda/bin:$PATH
 FROM base as molcrafts-dev
 WORKDIR /opt/molcrafts
 COPY . /opt/molcrafts
-RUN git submodule update --init --recursive
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        build-essential \
-        cmake \
-        git \
-        wget \
-        libblas-dev \
-        liblapack-dev  && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update --fix-missing && apt-get -y upgrade
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    apt-utils \
+    curl \
+    cmake \
+    build-essential \
+    gcc \
+    g++-multilib \
+    locales \
+    make \
+    ruby \
+    gcovr \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+RUN deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main
+RUN deb-src http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
 
 FROM base as conda
 ARG PYTHON_VERSION=3.11
