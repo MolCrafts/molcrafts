@@ -13,9 +13,6 @@
 		"ghcr.io/devcontainers/features/python:1": {}
 	},
 
-	// https://github.com/microsoft/vscode-remote-release/issues/4855#issuecomment-831920085
-	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
-
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
@@ -23,15 +20,13 @@
 	// "forwardPorts": [],
 
 	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "cat /etc/os-release",
+	"postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 
 	// Configure tool-specific properties.
 	"customizations": {
-		"settings": {
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "extensions.verifySignature": false
-      },
-		"extensions": ["ms-vscode.cpptools", "ms-vscode.cmake-tools"]
+		"vscode":{
+			"extensions": ["ms-vscode.cpptools", "ms-vscode.cmake-tools"]
+		}
 	}
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
