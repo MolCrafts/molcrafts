@@ -20,7 +20,7 @@
 	// "forwardPorts": [],
 
 	// Uncomment the next line to run commands after the container is created.
-	"postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+	"postCreateCommand": "git config --global --add safe.directory \"${containerWorkspaceFolder}/*\"",
 
 	// Configure tool-specific properties.
 	"customizations": {

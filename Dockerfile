@@ -3,28 +3,22 @@
 ARG BASE_IMAGE=ubuntu:22.04
 ARG PYTHON_VERSION=3.11
 
-FROM ${BASE_IMAGE} as base
+FROM ${BASE_IMAGE} as dev-base
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        build-essential \
         ca-certificates \
+        ccache \
+        cmake \
         curl \
+        libblas-dev \
+        liblapack-dev \
         git && \
     rm -rf /var/lib/apt/lists/*
+RUN /usr/sbin/update-ccache-symlinks
+RUN mkdir /opt/ccache && ccache --set-config=cache_dir=/opt/ccache
 ENV PATH /opt/conda/bin:$PATH
 
-FROM base as molcrafts-dev
-WORKDIR /opt/molcrafts
-COPY . /opt/molcrafts
-RUN apt-get update --fix-missing && apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    curl \
-    cmake \
-    build-essential \
-    wget \
-    libblas-dev \
-    liblapack-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-FROM base as conda
+FROM dev-base as conda
 ARG PYTHON_VERSION=3.11
 ARG TARGETPLATFORM
 RUN case ${TARGETPLATFORM} in \
@@ -37,3 +31,13 @@ RUN chmod +x ~/miniconda.sh && \
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -ya
+
+FROM dev-base as submodule-update
+WORKDIR /opt/molcrafts
+COPY . .
+RUN git submodule update --init --recursive
+
+FROM conda as molcrafts-dev
+WORKDIR /opt/molcrafts
+COPY --from=conda /opt/conda /opt/conda
+# COPY --from=submodule-update /opt/molcrafts /opt/molcrafts

@@ -1,0 +1,8 @@
+{
+    "cmake.sourceDirectory": "/home/jicli594/work/molcrafts/molcore",
+    "python.testing.pytestArgs": [
+        "molpy"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
