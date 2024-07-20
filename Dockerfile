@@ -10,6 +10,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         ccache \
         cmake \
         curl \
+        zip \
+        unzip \
+        tar \
+        zsh \
         libblas-dev \
         liblapack-dev \
         git && \
@@ -32,12 +36,12 @@ RUN chmod +x ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -ya
 
-FROM dev-base as submodule-update
-WORKDIR /opt/molcrafts
-COPY . .
-RUN git submodule update --init --recursive
-
 FROM conda as molcrafts-dev
 WORKDIR /opt/molcrafts
 COPY --from=conda /opt/conda /opt/conda
 # COPY --from=submodule-update /opt/molcrafts /opt/molcrafts
+RUN git clone https://github.com/microsoft/vcpkg.git && \
+    cd vcpkg && \
+    ./bootstrap-vcpkg.sh 
+ENV VCPKG_ROOT=/opt/molcrafts/vcpkg
+ENV PATH=$VCPKG_ROOT:$PATH
