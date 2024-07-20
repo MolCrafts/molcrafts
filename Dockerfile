@@ -3,7 +3,7 @@
 ARG BASE_IMAGE=ubuntu:22.04
 ARG PYTHON_VERSION=3.11
 
-FROM ${BASE_IMAGE} as dev-base
+FROM ${BASE_IMAGE} AS dev-base
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         build-essential \
         ca-certificates \
@@ -20,9 +20,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     rm -rf /var/lib/apt/lists/*
 RUN /usr/sbin/update-ccache-symlinks
 RUN mkdir /opt/ccache && ccache --set-config=cache_dir=/opt/ccache
-ENV PATH /opt/conda/bin:$PATH
+ENV PATH=/opt/conda/bin:$PATH
 
-FROM dev-base as conda
+FROM dev-base AS conda
 ARG PYTHON_VERSION=3.11
 ARG TARGETPLATFORM
 RUN case ${TARGETPLATFORM} in \
@@ -36,13 +36,15 @@ RUN chmod +x ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -ya
 
-FROM dev-base as submodule-update
+FROM dev-base AS submodule-update
+WORKDIR /opt/molcrafts
 COPY . .
 RUN git submodule update --init --recursive
-    
-FROM conda as molcrafts-dev
-# COPY --from=conda /opt/conda /opt/conda
-COPY --from=submodule-update . .
+
+FROM conda AS molcrafts-dev
+WORKDIR /opt/molcrafts
+COPY --from=conda /opt/conda /opt/conda
+COPY --from=submodule-update /opt/molcrafts /opt/molcrafts
 RUN git clone https://github.com/microsoft/vcpkg.git && \
     cd vcpkg && \
     ./bootstrap-vcpkg.sh 
