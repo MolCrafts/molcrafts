@@ -10,7 +10,7 @@
 			"path": "molpy",
 		},
 		{
-			"path": "molcpp",
+			"path": "molcore",
 		},
 		{
 			"path": "molpot"

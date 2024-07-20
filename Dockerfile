@@ -36,10 +36,13 @@ RUN chmod +x ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -ya
 
+FROM dev-base as submodule-update
+COPY . .
+RUN git submodule update --init --recursive
+    
 FROM conda as molcrafts-dev
-WORKDIR /opt/molcrafts
-COPY --from=conda /opt/conda /opt/conda
-# COPY --from=submodule-update /opt/molcrafts /opt/molcrafts
+# COPY --from=conda /opt/conda /opt/conda
+COPY --from=submodule-update . .
 RUN git clone https://github.com/microsoft/vcpkg.git && \
     cd vcpkg && \
     ./bootstrap-vcpkg.sh 
