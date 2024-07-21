@@ -13,6 +13,11 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
 RUN sudo apt-get -y update
 RUN sudo apt install -y lsb-release wget software-properties-common gnupg
 
+# Install blas and lapack
+RUN sudo apt-get install -y libblas-dev liblapack-dev
+
+RUN sudo apt-get install -y build-essential gdb autoconf-archive gfortran
+
 # Install CLANG if version is specified
 ARG CLANG_VERSION
 RUN if [ -n "$CLANG_VERSION" ]; then \
@@ -22,16 +27,9 @@ RUN if [ -n "$CLANG_VERSION" ]; then \
     echo 'export CC=clang' >> ~/.bashrc; \
     echo 'export CXX=clang++' >> ~/.bashrc; \
     sudo apt update; \
-    sudo apt install -y clang; \
+    sudo apt install -y clang flang; \
     sudo apt install -y libomp-dev; \
     fi
-
-WORKDIR /opt
-RUN git clone https://github.com/microsoft/vcpkg.git && \
-    cd vcpkg && \
-    ./bootstrap-vcpkg.sh 
-ENV VCPKG_ROOT=/opt/vcpkg
-ENV PATH=$VCPKG_ROOT:$PATH
 
 # Install cuda if version is specified
 ARG CUDA_VERSION

@@ -1,5 +1,4 @@
 {
-    "cmake.sourceDirectory": "/workspaces/molcrafts/molcore",
     "python.testing.pytestArgs": [
         "molpy"
     ],

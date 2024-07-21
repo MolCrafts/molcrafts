@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "molcore",
+			"path": "./molcore"
+		},
+		{
+			"name": "molcrafts",
+			"path": "."
+		}
+	],
+	"settings": {
+		"clangd.arguments": [
+			"--compile-commands-dir=./molcore"
+		],
+	}
+}

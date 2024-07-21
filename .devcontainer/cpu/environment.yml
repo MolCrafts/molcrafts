@@ -3,4 +3,4 @@ name: MolCrafts
 dependencies:
   - cmake
   - ninja
-  - libopenblas
+  - xtensor-python
