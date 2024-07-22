@@ -1,37 +1,47 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/anaconda
 {
-	"name": "MolCrafts - CPU",
-	"build": {
-	  "context": "../..",
-	  "dockerfile": "../Dockerfile",
-	  "args": {
-		// "USERNAME": "vscode",
-		// "BUILDKIT_INLINE_CACHE": "0",
-		// "CLANG_VERSION": ""
-	  }
-	},
+    "name": "MolCrafts - CPU",
+    "build": {
+      "context": "../..",
+      "dockerfile": "../Dockerfile",
+      "args": {
+        "USERNAME": "vscode",
+        "BUILDKIT_INLINE_CACHE": "0",
+        "CLANG_VERSION": ""
+      }
+    },
   
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-	  // This is needed for lintrunner
-	  "ghcr.io/devcontainers/features/python:1" : {}
-	},
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+      // This is needed for lintrunner
+      "ghcr.io/devcontainers/features/python:1" : {}
+    },
   
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
   
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bash .devcontainer/scripts/install-dev-tools.sh",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "bash .devcontainer/scripts/install-dev-tools.sh",
   
-	// Configure tool-specific properties.
-	// "customizations": {},
-	"customizations": {
-	  "vscode": {
-		"extensions": ["ms-vscode.cpptools-extension-pack", "ms-vscode.cmake-tools", "github.copilot"]
-	  }
-	}
+    // Configure tool-specific properties.
+    // "customizations": {},
+    "customizations": {
+      "vscode": {
+        "extensions": [
+            "ms-vscode.cpptools-extension-pack",
+            "ms-vscode.cmake-tools",
+            "ms-azuretools.vscode-docker",
+            "ms-python.black-formatter",
+            "ms-python.isort",
+            "github.copilot",
+            "ms-vscode.test-adapter-converter",
+            "njpwerner.autodocstr",
+            "llvm-vs-code-extensions.vscode-clangd"
+          ]
+      }
+    }
   
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
   }

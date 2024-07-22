@@ -17,6 +17,7 @@ RUN sudo apt install -y lsb-release wget software-properties-common gnupg
 # Install blas and lapack
 RUN sudo apt-get install -y libblas-dev liblapack-dev
 
+# Install cpp dev tools
 RUN sudo apt-get install -y build-essential gdb autoconf automake autoconf-archive gfortran valgrind && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # Install CLANG if version is specified
