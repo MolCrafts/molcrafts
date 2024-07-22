@@ -45,15 +45,15 @@
 <path fill="none" stroke="grey" stroke-dasharray="5,2" d="M217,-71.7C217,-63.98 217,-54.71 217,-46.11"/>
 <polygon fill="grey" stroke="grey" points="220.5,-46.1 217,-36.1 213.5,-46.1 220.5,-46.1"/>
 </g>
-<!-- molcore -->
+<!-- molcpp -->
 <g id="node9" class="node">
-<title>molcore</title>
+<title>molcpp</title>
 <ellipse fill="#b2dfee" stroke="#b2dfee" cx="321" cy="-18" rx="42.49" ry="18"/>
-<text text-anchor="middle" x="321" y="-14.3" font-family="Helvetica,Arial,sans-serif" font-size="14.00">molcore</text>
+<text text-anchor="middle" x="321" y="-14.3" font-family="Helvetica,Arial,sans-serif" font-size="14.00">molcpp</text>
 </g>
-<!-- molpy&#45;&gt;molcore -->
+<!-- molpy&#45;&gt;molcpp -->
 <g id="edge8" class="edge">
-<title>molpy&#45;&gt;molcore</title>
+<title>molpy&#45;&gt;molcpp</title>
 <path fill="none" stroke="grey" stroke-dasharray="5,2" d="M237.54,-75.17C252.77,-64.92 273.75,-50.8 290.87,-39.28"/>
 <polygon fill="grey" stroke="grey" points="293.08,-42.01 299.42,-33.52 289.17,-36.2 293.08,-42.01"/>
 </g>

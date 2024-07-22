@@ -17,6 +17,6 @@ digraph deps {
     "molana"  -> "molpy"
     "molpot" -> "molpy"
     "molpy" -> "molbase" [style=dashed, color=grey]
-    "molpy" -> "molcore" [style=dashed, color=grey]
+    "molpy" -> "molcpp" [style=dashed, color=grey]
 
 }
