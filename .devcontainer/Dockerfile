@@ -48,3 +48,9 @@ COPY .devcontainer/scripts/install-vcpkg.sh /tmp/
 RUN chmod +x /tmp/install-vcpkg.sh \
     && ./tmp/install-vcpkg.sh ${USERNAME} \
     && rm -f /tmp/install-vcpkg.sh
+
+# Install latest cmake: 
+COPY .devcontainer/scripts/install-cmake.sh /tmp/
+RUN chmod +x /tmp/install-cmake.sh \
+    && ./tmp/install-cmake.sh \
+    && rm -f /tmp/install-cmake.sh
