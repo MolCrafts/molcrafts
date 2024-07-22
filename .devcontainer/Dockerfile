@@ -33,12 +33,6 @@ RUN if [ -n "$CLANG_VERSION" ]; then \
     sudo apt install -y libomp-dev; \
     fi
 
-# Install cuda if version is specified
-ARG CUDA_VERSION
-RUN if [ -n "$CUDA_VERSION" ]; then \
-       conda install -y cuda -c "nvidia/label/cuda-${CUDA_VERSION}"; \
-    fi
-
 # Setup ENV vars for vcpkg
 ENV VCPKG_ROOT=/usr/local/vcpkg \
     VCPKG_DOWNLOADS=/usr/local/vcpkg-downloads
