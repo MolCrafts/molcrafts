@@ -1,6 +1,8 @@
 # This environment is specific to Debian
 name: MolCrafts
+channels:
+  - conda-forge
+  - defaults
 dependencies:
-  - cmake
-  - ninja
+  - mamba
   - xtensor-python
