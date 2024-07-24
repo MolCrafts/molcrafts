@@ -1,7 +1,0 @@
-# This environment is specific to Debian
-name: MolCrafts
-channels:
-  - defaults
-  - conda-forge
-dependencies:
-  - xtensor-python

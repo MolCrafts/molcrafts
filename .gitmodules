@@ -22,9 +22,6 @@
 [submodule "moldb"]
 	path = moldb
 	url = https://github.com/MolCrafts/moldb.git
-[submodule "molana"]
-	path = molana
-	url = https://github.com/MolCrafts/molana.git
 [submodule "molcpp"]
 	path = molcpp
 	url = https://github.com/MolCrafts/molcpp.git
