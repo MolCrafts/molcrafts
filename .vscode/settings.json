@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "molpy"
+        "molpot"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
