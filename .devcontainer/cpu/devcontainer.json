@@ -24,7 +24,7 @@
     // "forwardPorts": [],
   
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "git config --global --add safe.directory /workspaces/molcrafts",
+    "postCreateCommand": "git config --global --add safe.directory '*'",
   
     // Configure tool-specific properties.
     // "customizations": {},
