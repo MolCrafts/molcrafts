@@ -1,0 +1,18 @@
+{
+  "name": "molexp",
+  "id": "molexp",
+  "version": "1.0.0",
+  "description": "Molexp Dev Container Feature",
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/conda:1": {}
+  },
+  "customizations": {
+    "vscode": {
+        "extensions": [
+            "ms-python.python",
+            "ms-python.black-formatter",
+            "ms-python.isort"
+        ]
+    }
+  }
+}

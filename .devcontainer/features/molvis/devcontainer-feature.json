@@ -1,0 +1,21 @@
+{
+  "name": "molvis",
+  "id": "molvis",
+  "version": "1.0.0",
+  "description": "Molvis Dev Container Feature",
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/conda:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "customizations": {
+    "vscode": {
+        "extensions": [
+            "ms-python.python",
+            "ms-python.black-formatter",
+            "ms-python.isort",
+            "esbenp.prettier-vscode",
+            "dbaeumer.vscode-eslint"
+        ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "MolCrafts - GPU",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+            "installCudann": false,
+            "installCudannDev": false,
+            "installNvtx": false,
+            "installToolkit": true,
+            // Volta or later: cuDNN 9.3.0 with CUDA 12.5
+            // before Volta: cuDNN 9.3.0 with CUDA 11.8
+            "cudaVersion": "11.8",
+            "cudannVersion": "9.3.0"
+        }
+    },
+    "hostRequirements": {
+        "gpu": "optional"
+    }
+}
