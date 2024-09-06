@@ -4,3 +4,9 @@
 [submodule "molpy"]
 	path = molpy
 	url = https://github.com/MolCrafts/molpy
+[submodule "molpot"]
+	path = molpot
+	url = https://github.com/MolCrafts/molpot.git
+[submodule "molcpp"]
+	path = molcpp
+	url = https://github.com/MolCrafts/molcpp.git
