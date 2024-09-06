@@ -1,0 +1,23 @@
+{
+    "name": "MolPy",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "ghcr.io/devcontainers/features/conda:1": {},
+      "ghcr.io/msclock/features/vcpkg:1": {}
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "ms-python.black-formatter",
+          "ms-python.isort",
+          "ms-toolsai.jupyter",
+          "github.copilot",
+          "ms-vscode.test-adapter-converter",
+          "njpwerner.autodocstr"
+        ]
+      }
+    },
+    "remoteUser": "root"
+  }
+  

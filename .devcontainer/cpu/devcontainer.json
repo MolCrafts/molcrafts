@@ -5,7 +5,8 @@
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "../features/molexp": {},
         "../features/molpot": {},
-        "../features/molvis": {}
+        "../features/molvis": {},
+        "../features/molpy": {}
     },
     "customizations": {
         "vscode": {
