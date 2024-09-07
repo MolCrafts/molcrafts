@@ -1,7 +1,7 @@
 {
     "name": "MolPy",
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
+    "dependsOn": {
       "ghcr.io/devcontainers/features/conda:1": {},
       "ghcr.io/msclock/features/vcpkg:1": {}
     },

@@ -10,3 +10,6 @@
 [submodule "molcpp"]
 	path = molcpp
 	url = https://github.com/MolCrafts/molcpp.git
+[submodule "moldb"]
+	path = moldb
+	url = https://github.com/MolCrafts/moldb
