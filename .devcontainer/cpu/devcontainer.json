@@ -4,7 +4,9 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "../features/molexp": {},
-        "../features/molpot": {},
+        "../features/molpot": {
+            "enable_cuda": false
+        },
         "../features/molvis": {},
         "../features/molpy": {}
     },

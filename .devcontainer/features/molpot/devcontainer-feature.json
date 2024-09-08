@@ -14,5 +14,13 @@
             "ms-python.isort"
         ]
     }
+  },
+  "options": {
+    // if enable CUDA support
+    "enable_cuda": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable CUDA support"
+    }
   }
 }
