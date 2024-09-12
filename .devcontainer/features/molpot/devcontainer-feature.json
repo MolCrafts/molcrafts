@@ -16,10 +16,9 @@
     }
   },
   "options": {
-    // if enable CUDA support
-    "enable_cuda": {
+    "molpotEnableCuda": {
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Enable CUDA support"
     }
   }
