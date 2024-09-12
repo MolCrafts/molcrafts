@@ -13,3 +13,6 @@
 [submodule "moldb"]
 	path = moldb
 	url = https://github.com/MolCrafts/moldb
+[submodule "molvis"]
+	path = molvis
+	url = https://github.com/Roy-Kid/molvis2.git
