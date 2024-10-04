@@ -4,17 +4,16 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "../features/molexp": {},
-        "../features/molpot": {
-            "enable_cuda": false
-        },
+        // "../features/molpot": {
+        //     "enable_cuda": false
+        // },
         "../features/molvis": {},
         "../features/molpy": {}
     },
     "customizations": {
         "vscode": {
             "extensions": [
-                "github.copilot",
-                "njpwerner.autodocstring"
+                "github.copilot"
             ]
         }
     },
