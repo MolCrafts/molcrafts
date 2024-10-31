@@ -5,7 +5,7 @@
         "ghcr.io/devcontainers/features/nvidia-cuda:1": {
             "installCudann": true,
             "installCudannDev": true,
-            "installNvtx": false,
+            "installNvtx": true,
             "installToolkit": true,
             // Volta or later: cuDNN 9.3.0 with CUDA 12.5
             // before Volta: cuDNN 9.3.0 with CUDA 11.8

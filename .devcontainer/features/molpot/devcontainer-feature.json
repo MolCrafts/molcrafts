@@ -14,12 +14,5 @@
             "ms-python.isort"
         ]
     }
-  },
-  "options": {
-    "molpotEnableCuda": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable CUDA support"
-    }
   }
 }
