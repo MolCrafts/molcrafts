@@ -16,3 +16,6 @@
 [submodule "molvis"]
 	path = molvis
 	url = https://github.com/Roy-Kid/molvis2.git
+[submodule "molpack"]
+	path = molpack
+	url = https://github.com/MolCrafts/molpack.git

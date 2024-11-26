@@ -1,0 +1,12 @@
+Bootstrap: docker-daemon
+From: vsc-molcrafts-8aa59103e106f3ba0bc90517ea5ec5ed2bb41a1b545dc5ec533c5d292dd070cc-features:latest
+
+%post
+    apt update
+    apt install curl -y
+    curl -fsSL https://code-server.dev/install.sh | sh
+
+%environment
+    export PATH=$PATH:/usr/local/cuda/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+    export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/local/cuda
