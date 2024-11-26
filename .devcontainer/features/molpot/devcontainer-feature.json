@@ -11,7 +11,8 @@
         "extensions": [
             "ms-python.python",
             "ms-python.black-formatter",
-            "ms-python.isort"
+            "ms-python.isort",
+            "ms-toolsai.tensorboard"
         ]
     }
   },
@@ -20,6 +21,11 @@
       "type": "boolean",
       "default": true,
       "description": "Enable CUDA support"
+    },
+    "pytorchCudaVersion": {
+      "type": "string",
+      "default": "cu125",
+      "description": "PyTorch CUDA version"
     }
   }
 }
