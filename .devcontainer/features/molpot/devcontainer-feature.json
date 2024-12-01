@@ -17,11 +17,6 @@
     }
   },
   "options": {
-    "molpotEnableCuda": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable CUDA support"
-    },
     "pytorchCudaVersion": {
       "type": "string",
       "default": "cu125",
