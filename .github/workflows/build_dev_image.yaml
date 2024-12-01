@@ -24,6 +24,10 @@ jobs:
   #         imageName: roykid/molcrafts_dev:latest
 
   build-gpu:
+
+    permissions:
+        packages: write
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
