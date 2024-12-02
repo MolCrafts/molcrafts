@@ -5,8 +5,8 @@ echo "Activating feature 'pytorch'"
 
 which pip > /dev/null || (apt update && apt install python3-pip -y -qq)
 
-if [ -z "${MOLPOTENABLECUDA}" ]; then
-    echo "Installing pytorch with ${MOLPOTENABLECUDA} support"
+if [ "${PYTORCHCUDAVERSION}" ]; then
+    echo "Installing pytorch with ${PYTORCHCUDAVERSION} support"
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/${PYTORCHCUDAVERSION}
     echo "Pytorch with CUDA support installed!"
 else
