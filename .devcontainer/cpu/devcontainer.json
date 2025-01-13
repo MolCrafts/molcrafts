@@ -20,6 +20,5 @@
             ]
         }
       },
-    "remoteUser": "root",
-    "postCreateCommand": "bash .devcontainer/cpu/install.sh"
+    "remoteUser": "root"
 }
