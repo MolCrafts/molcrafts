@@ -4,9 +4,9 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "../features/molexp": {},
-        // "../features/molpot": {
-        //     "molpotEnableCuda": false
-        // },
+        "../features/molpot": {
+            "enableCuda": false
+        },
         "../features/molvis": {},
         "../features/molpy": {}
     },
@@ -20,6 +20,5 @@
             ]
         }
       },
-    "remoteUser": "root",
-    "postCreateCommand": "bash .devcontainer/cpu/install.sh"
+    "remoteUser": "root"
 }

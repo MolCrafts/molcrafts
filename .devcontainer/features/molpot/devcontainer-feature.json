@@ -17,6 +17,11 @@
     }
   },
   "options": {
+    "enableCuda": {
+      "type":"boolean",
+      "default": false,
+      "description": "if enable cuda support"
+    },
     "pytorchCudaVersion": {
       "type": "string",
       "default": "cu125",
